@@ -1,0 +1,18 @@
+syntax = "proto3";
+package grpc_exp;
+
+// HelloMsg is simple message
+message HelloMsg {
+    string msg = 1;
+
+    // Next available id: 2
+}
+
+message HelloReply {
+    string result = 1;
+}
+
+service HelloService {
+    rpc SayHello (HelloMsg) returns (HelloReply) {}
+    rpc SayBiStreamHello (stream HelloMsg) returns (stream HelloReply) {}
+}
